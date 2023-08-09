@@ -4,7 +4,7 @@ import Home from './pages/home/Home';
 import Details from './pages/details/Details';
 import SearchResult from './pages/searchResult/SearchResult';
 import Explore from './pages/explore/Explore';
-import PageNotFound from './pages/notFound/pageNotFound';
+import PageNotFound from './pages/notFound/PageNotFound';
 import { useState, useEffect } from 'react'
 import { fetchDataFromApi } from './utils/api';
 import { useDispatch, useSelector } from 'react-redux';
