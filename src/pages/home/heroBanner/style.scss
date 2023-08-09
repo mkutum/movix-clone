@@ -52,15 +52,16 @@
         max-width: 800px;
         margin: 0 auto;
         .title{
-            font-size: 50px;
+            font-size: 40px;
             font-weight: 700;
+            margin-bottom: 10px;
             @include md{
                 margin-bottom: 0;
                 font-size: 90px;
             }
         }
         .subTitle{
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 500;
             margin-bottom: 40px;
             @include md{
