@@ -59,10 +59,17 @@
                 justify-content: center;
                 cursor: pointer;
                 transition: all ease 0.3s;
+                svg{
+                    color:#2147A4;
+                }
                 &:hover {
                     box-shadow: 0 0 0.625em var(--orange);
-                    color: var(--orange);
+                    svg{
+                        color: var(--orange);
+                    }
+                    
                 }
+                
             }
         }
     }
