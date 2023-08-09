@@ -1,16 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./style.scss";
 const SwitchTabs = ({ data, onTabChange }) => {
     const [selectedTab, setSelectedTab] = useState(0);
     const [left, setLeft] = useState(0);
+
     const activeTab = (tab, index) => {
-        setLeft(index * 100);
+        if (window.innerWidth < 640) {
+            setLeft(index * 75);
+        } else {
+            setLeft(index * 100);
+        }
         setTimeout(() => {
             setSelectedTab(index)
         }, 300);
         onTabChange(tab, index);
     }
     // console.log(left)
+    useEffect(() => {
+        if (window.innerWidth < 640) {
+            setLeft(left * 75);
+        } else {
+            setLeft(left * 100);
+        }
+    }, [window.innerWidth])
     return (
         <div className='switchingTabs'>
             <div className="tabItems">
