@@ -4,7 +4,7 @@ import Home from './pages/home/Home';
 import Details from './pages/details/Details';
 import SearchResult from './pages/searchResult/SearchResult';
 import Explore from './pages/explore/Explore';
-import PageNotFound from './pages/notFound/PageNotFound';
+import NotFoundPage from './pages/home/notFoundPage/NotFoundPage';
 import { useState, useEffect } from 'react'
 import { fetchDataFromApi } from './utils/api';
 import { useDispatch, useSelector } from 'react-redux';
@@ -54,7 +54,7 @@ function App() {
           <Route path="/:mediaType/:id" element={<Details />} />
           <Route path="/search/:query" element={<SearchResult />} />
           <Route path="/explore/:mediaType" element={<Explore />} />
-          <Route path="*" element={<PageNotFound />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>
