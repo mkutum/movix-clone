@@ -108,7 +108,7 @@
                 aspect-ratio: 1 / 1.5;
                 background-size: cover;
                 background-position: center;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 display: flex;
                 align-items: flex-end;
                 justify-content: space-between;
@@ -132,7 +132,7 @@
                     width: 40px;
                     height: 40px;
                     position: relative;
-                    top: 30px;
+                    // top: 30px;
                     background-color: white;
                     flex-shrink: 0;
                     @include md {
