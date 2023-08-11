@@ -1,6 +1,6 @@
 @import "../../mixins.scss";
 .carousel {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     @include sm{
         margin-bottom: 50px;
     }
@@ -81,7 +81,7 @@
     }
     .carouselItems {
         display: flex;
-        gap: 10px;
+        gap: 17px;
         overflow-y: hidden;
         margin-right: -20px;
         margin-left: -20px;
@@ -91,6 +91,7 @@
             overflow: hidden;
             margin: 0;
             padding: 0;
+
         }
         .carouselItem {
             width: 125px;
