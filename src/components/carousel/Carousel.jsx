@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import "./style.scss";
 import {
     BsFillArrowLeftCircleFill,
@@ -12,11 +12,30 @@ import Img from "../laziLoadingImage/Img";
 import CircleRating from '../circleRating/CircleRating';
 import PosterFallback from "../../assets/no-poster.png";
 import Genres from '../genres/Genres';
+import CarouselCard from './CarouselCard';
+
+
+
+
 
 const Carousel = ({ title, data, loading, endpoint }) => {
+    // const [mouseHover, setMouseHover] = useState(false);
     const carouselContainer = useRef();
+    // const carouselItemPositon = useRef();
     const { url } = useSelector((state) => state.home);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
+    // console.log(data);
+
+    // const handleCarouselPopUp = (e, item) => {
+    // console.log("item id", item);
+    // const x = carouselItemPositon.current?.offsetLeft;
+    // const y = carouselItemPositon.current?.offsetTop;
+    // console.log(x, y);
+    // console.log(e);
+
+    // }
+
+
     const navigation = (direction) => {
         const container = carouselContainer.current;
         // console.log(container.scrollLeft, container.offsetWidth)
@@ -28,13 +47,14 @@ const Carousel = ({ title, data, loading, endpoint }) => {
         });
 
     };
+
     const skItem = () => {
         return (
             <div className="skeletonItem">
                 <div className="posterBlock skeleton"></div>
                 <div className="textBlock">
                     <div className="title skeleton"></div>
-                    <div className="date skeleton"></div>
+                    {/* <div className="date skeleton"></div> */}
                 </div>
             </div>
         )
@@ -53,31 +73,11 @@ const Carousel = ({ title, data, loading, endpoint }) => {
                 />
                 {!loading ? (
                     <div className="carouselItems" ref={carouselContainer}>
-                        {data?.map((item) => {
+                        {data?.map((item, i) => {
                             const posterUrl = item.poster_path ?
                                 url.poster + item.poster_path : PosterFallback;
                             return (
-                                <div
-                                    key={item.id}
-                                    className="carouselItem"
-                                    onClick={() =>
-                                        navigate(`/${item.media_type || endpoint}/${item.id}`)
-                                    }
-                                >
-                                    <div className="posterBlock">
-                                        <Img src={posterUrl} />
-                                        <CircleRating rating={item.vote_average.toFixed(1)} />
-                                        <Genres data={item.genre_ids.slice(0, 2)} />
-                                    </div>
-                                    <div className="textBlock">
-                                        <span className="title">
-                                            {item.title || item.name}
-                                        </span>
-                                        <span className="date">
-                                            {dayjs(item.release_Date).format("MMM D, YYYY")}
-                                        </span>
-                                    </div>
-                                </div>
+                                <CarouselCard key={i} item={item} posterUrl={posterUrl} />
                             )
                         })}
                     </div>

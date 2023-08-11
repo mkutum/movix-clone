@@ -4,7 +4,8 @@ export const homeSlice = createSlice({
     name: "home",
     initialState: {
         url: {},
-        genres: {}
+        genres: {},
+        popUp: false,
     },
     reducers: {
         getApiConfiguration: (state, action) => {
@@ -12,10 +13,13 @@ export const homeSlice = createSlice({
         },
         getGenres: (state, action) => {
             state.genres = action.payload;
+        },
+        getPopUp: (state, action) => {
+            state.popUp = action.payload;
         }
     }
 });
 
-export const { getApiConfiguration, getGenres } = homeSlice.actions
+export const { getApiConfiguration, getGenres, getPopUp } = homeSlice.actions
 
 export default homeSlice.reducer;
