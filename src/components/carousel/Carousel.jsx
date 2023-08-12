@@ -77,7 +77,7 @@ const Carousel = ({ title, data, loading, endpoint }) => {
                             const posterUrl = item.poster_path ?
                                 url.poster + item.poster_path : PosterFallback;
                             return (
-                                <CarouselCard key={i} item={item} posterUrl={posterUrl} />
+                                <CarouselCard key={i} item={item} posterUrl={posterUrl} endpoint={endpoint} />
                             )
                         })}
                     </div>

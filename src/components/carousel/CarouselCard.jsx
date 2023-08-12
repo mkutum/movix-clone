@@ -6,7 +6,7 @@ import Genres from '../genres/Genres';
 
 
 
-const CarouselCard = ({ item, posterUrl }) => {
+const CarouselCard = ({ item, posterUrl, endpoint }) => {
     const carouselItemPositon = useRef();
     const navigate = useNavigate();
     // console.log(data);
